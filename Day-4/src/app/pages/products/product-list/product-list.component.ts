@@ -1,0 +1,19 @@
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ProductCardComponent } from '../product-card/product-card.component';
+
+@Component({
+  selector: 'app-product-list',
+  imports: [CommonModule, ProductCardComponent],
+  templateUrl: './product-list.component.html',
+  styleUrl: './product-list.component.css'
+})
+export class ProductListComponent {
+  @Input() products: any[] = [];
+  @Output() deleteProduct = new EventEmitter<number>();
+
+  onDelete(id: number) {
+    this.deleteProduct.emit(id);
+  }
+  
+}

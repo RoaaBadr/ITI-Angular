@@ -1,0 +1,49 @@
+<div class="container my-5">
+  <h1 class="text-center text-primary fw-bold mb-4">ITI Tracks</h1>
+
+  <!-- Department Filter -->
+  <div class="row mb-4">
+    <div class="col-md-6 offset-md-3">
+      <select
+        class="form-select border-primary"
+        name="departments"
+        [(ngModel)]="department"
+        (change)="filterTrack()"
+      >
+        <option value="All">All Departments</option>
+        <option value="Design"> Design</option>
+        <option value="Java"> Java</option>
+        <option value="OS"> OS</option>
+        <option value="SD"> SD</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Cards Display -->
+  <div class="row">
+    @for (track of filteredData; track track.id) {
+    <!-- for which option selected it will 
+                 display tracks in this department -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div
+          class="card border-0 rounded-3 pb-3"
+          style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);"
+        >
+          <div class="card-body">
+            <h5 class="card-title fw-semibold text-dark">
+              {{ track.name }}
+            </h5>
+            <p class="card-text text-muted">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, totam.
+            </p>
+          </div>
+          <div class="card-footer bg-transparent border-0">
+            <span class="badge rounded-pill bg-info text-white px-3 py-2">
+              {{ track.department }}
+            </span>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

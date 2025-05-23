@@ -1,0 +1,11 @@
+<app-header (pageChange)="navTo($event)"></app-header>
+
+<div *ngIf="currentPage === 'home'">
+  <app-home></app-home>
+</div>
+<div *ngIf="currentPage === 'products'">
+  <app-products></app-products>
+</div>
+<div *ngIf="currentPage === 'iti-tracks'">
+  <app-iti-tracks></app-iti-tracks>
+</div>
