@@ -1,0 +1,38 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h2 class="mb-4">Edit Product</h2>
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Product Name</label>
+          <input type="text" class="form-control" id="name" formControlName="name">
+        </div>
+        <div class="mb-3">
+          <label for="price" class="form-label">Price</label>
+          <input type="number" class="form-control" id="price" formControlName="price">
+        </div>
+        <div class="mb-3">
+          <label for="quantity" class="form-label">Quantity</label>
+          <input type="number" class="form-control" id="quantity" formControlName="quantity">
+        </div>
+        <div class="mb-3">
+          <label for="category" class="form-label">Category</label>
+          <select class="form-select" id="category" formControlName="category">
+            <option value="Electronics">Electronics</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Beauty">Beauty</option>
+            <option value="Groceries">Groceries</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="imgSrc" class="form-label">Image URL</label>
+          <input type="url" class="form-control" id="imgSrc" formControlName="imgSrc">
+        </div>
+        <div class="d-flex justify-content-between">
+          <button type="submit" class="btn btn-primary" [disabled]="!editForm.valid">Save Changes</button>
+          <button type="button" class="btn btn-outline-secondary" [routerLink]="['/product' , productId]">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="home-page">
+  <!-- Hero Section -->
+  <section class="hero-section bg-light py-5">
+    <div class="container text-center py-4">
+      <h1 class="display-4 fw-bold mb-3">Welcome to Our Store</h1>
+      <p class="lead mb-4">Discover amazing products at great prices</p>
+      <a routerLink="/product" class="btn btn-primary btn-lg px-4">
+        <i class="bi bi-cart me-2"></i>Shop Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4 text-center">
+        <div class="col-md-4">
+          <div class="p-3">
+            <i class="bi bi-truck fs-1 text-primary mb-3"></i>
+            <h3>Fast Delivery</h3>
+            <p>Get your products delivered within 2-3 business days</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-3">
+            <i class="bi bi-shield-check fs-1 text-primary mb-3"></i>
+            <h3>Quality Guarantee</h3>
+            <p>30-day money back guarantee on all products</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-3">
+            <i class="bi bi-headset fs-1 text-primary mb-3"></i>
+            <h3>24/7 Support</h3>
+            <p>Our team is always here to help you</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Featured Products</h2>
+      <div class="row g-4">
+        <div class="col-md-4" *ngFor="let product of featuredProducts">
+          <div class="card h-100 shadow-sm">
+            <img [src]="product.imgSrc" class="card-img-top" [alt]="product.name" style="height: 200px; object-fit: contain;">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.name }}</h5>
+              <p class="text-muted">{{ product.category }}</p>
+              <h5 class="text-primary">{{ product.price }} EGP</h5>
+            </div>
+            <div class="card-footer bg-white">
+              <a [routerLink]="['/product', product.id]" class="btn btn-outline-primary w-100">
+                View Details
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a routerLink="/product" class="btn btn-outline-secondary">
+          View All Products <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-5 text-center">
+    <div class="container">
+      <h2 class="mb-4">Ready to find your perfect product?</h2>
+      <a routerLink="/product" class="btn btn-primary btn-lg px-4">
+        Browse Collection
+      </a>
+    </div>
+  </section>
+</div>

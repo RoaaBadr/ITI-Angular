@@ -1,0 +1,17 @@
+<div class="container py-4">
+  <app-product-header />
+  
+  <div class="row mb-4 g-3">
+    <div class="col-md-6">
+      <app-search-input (search)="onSearch($event)"></app-search-input>
+    </div>
+    <div class="col-md-6">
+      <app-category-filter (categoryChange)="onCategoryChange($event)"></app-category-filter>
+    </div>
+  </div>
+  
+  <app-product-list 
+    [products]="filteredProducts"
+    (deleteProduct)="onDelete($event)">
+  </app-product-list>
+</div>
